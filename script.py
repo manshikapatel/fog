@@ -7,13 +7,7 @@ change_settings({"IMAGEMAGICK_BINARY": r"C:/Program Files/ImageMagick-7.1.1-Q16-
 
 
 def download_video(url, output_path="videos/input_video.mp4"):
-    """
-    Downloads a video from the provided URL using yt-dlp.
-
-    Parameters:
-        url (str): The URL of the video to download.
-        output_path (str): The file name or path where the downloaded video will be saved.
-    """
+    
     try:
         # Ensure the "videos" folder exists
         output_folder = "videos"
@@ -38,13 +32,7 @@ def download_video(url, output_path="videos/input_video.mp4"):
 
 
 def create_short_video(input_path, output_path="videos/short_video.mp4"):
-    """
-    Creates a 30-second short video from a longer input video.
     
-    Parameters:
-        input_path (str): Path to the input video.
-        output_path (str): Path to save the processed short video.
-    """
     try:
         if not os.path.exists(input_path):
             raise FileNotFoundError(f"Input file not found: {input_path}")
@@ -85,13 +73,8 @@ def create_short_video(input_path, output_path="videos/short_video.mp4"):
     except Exception as e:
         print(f"Error processing video: {e}")
 
-
-# ===========================
-# Instructions to Use:
-# ===========================
-
 # Step 1: Provide the video URL here
-video_url = "https://youtu.be/y3RIHnK0_NE?si=1vRLvB6cdhOGP7rg"  # Example: "https://www.youtube.com/watch?v=EXAMPLE"
+video_url = "https://youtu.be/y3RIHnK0_NE?si=1vRLvB6cdhOGP7rg" 
 
 # Step 2: Download the video
 input_video_path = download_video(video_url)
@@ -100,10 +83,3 @@ input_video_path = download_video(video_url)
 if input_video_path:  # Ensure the video was downloaded successfully
     create_short_video(input_video_path, "videos/short_video.mp4")
 
-# ===========================
-# Notes:
-# ===========================
-# 1. Replace "YOUR_VIDEO_URL" with the link to the video you want to download.
-# 2. The video will be saved in the "videos" folder.
-# 3. Adjust clip timestamps and text as needed.
-# 4. Uncomment the music section to add background music.
