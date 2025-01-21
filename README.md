@@ -7,22 +7,30 @@ Whether you're a content creator, marketer, or casual user, this tool simplifies
 Features
 
 Download Videos from YouTube: Download videos directly from YouTube using their URL.
+
 Create Short Clips: Extract specific segments from a video to form a concise, engaging short clip.
+
 Text Overlay: Add custom text overlays to enhance the video.
+
 Background Music: Integrate background music into the final video.
+
 Configurable Timestamps: Easily adjust the start and end times of video clips.
+
 Flexible Output: Saves videos in MP4 format with high-quality audio and video encoding.
 
 Technologies Used
-
 Programming Language: Python
 
 Libraries:
 yt-dlp: For downloading videos from YouTube.
+
 moviepy: For video processing (trimming, combining clips, and adding text/audio).
+
 os: For file handling and directory creation.
+
 Additional Tools:
 ImageMagick: Required for rendering text overlays with moviepy.
+
 FFmpeg: Used internally by moviepy for efficient video encoding.
 
 Installation
@@ -39,32 +47,44 @@ Ensure the path to the magick.exe binary is correctly configured in the script.
 HIGH LEVEL APPROACH
 1. Input: Video URL
 Objective: Accept a YouTube video URL as input.
+
 Action: Use a reliable tool (yt-dlp) to download the video in MP4 format.
+
 Output: Save the downloaded video locally for processing.
 
-2. Extract Video Segments
+3. Extract Video Segments
 Objective: Identify and extract key portions of the video.
+
 Action: Define timestamps to select interesting clips (e.g., 5–10 seconds, 15–20 seconds, etc.) using moviepy.
+
 Output: Short, individual video clips.
 
-3. Combine Clips
+5. Combine Clips
 Objective: Create a cohesive short video by merging selected clips.
+
 Action: Use moviepy to concatenate the extracted segments seamlessly.
+
 Output: A single combined video containing all selected clips.
 
-4. Enhance Video
+7. Enhance Video
 Objective: Add visual and audio enhancements for better engagement.
+
 Text Overlay: Include captions or titles using moviepy.
+
 Background Music: Integrate optional audio to replace or supplement the original audio.
+
 Action: Use TextClip and AudioFileClip to overlay text and audio onto the video.
+
 Output: An enhanced short video with text and/or music.
 
-5. Export Final Video
+9. Export Final Video
 Objective: Save the processed video in a shareable, high-quality format.
+
 Action: Use moviepy.write_videofile() to export the video with optimized settings (e.g., MP4 with libx264 and aac codecs).
+
 Output: The final short video saved locally.
 
-6. Optional Customizations
+11. Optional Customizations
 Allow users to:
 Adjust clip timestamps.
 Change text content, font, and position.
