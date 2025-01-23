@@ -69,6 +69,8 @@ Click on Select Background Music to choose an audio file from your local machine
 Once all clips and text overlays have been added, and the music is selected, click on Create Short Video.
 The video will be processed and saved with a unique filename based on the current timestamp (e.g., short_video_20250123-123456.mp4)
 
+Input Video Links - https://youtu.be/y3RIHnK0_NE?si=1vRLvB6cdhOGP7rg
 
+MY Video Links Of Creation - https://youtu.be/eBT_zET3C8o
 
 
