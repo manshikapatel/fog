@@ -1,99 +1,65 @@
-Long Video to Short Video Converter
-Description
-
-This project is a Python-based tool designed to download long videos from YouTube and convert them into shorter, more engaging clips. It leverages yt-dlp for video downloads and MoviePy for video processing, allowing users to extract specific segments, combine them, add overlays, and optionally include background music.
-Whether you're a content creator, marketer, or casual user, this tool simplifies the process of creating highlight reels or social media-ready videos.
+YouTube Video Downloader & Short Video Creator
+This project allows you to download a video from YouTube and create a short video by selecting specific clips, adding text overlays, and including background music. The output video is saved with a unique filename based on the timestamp to avoid overwriting.
 
 Features
+Download videos from YouTube.
+Select specific clips from the downloaded video (by defining start and end times).
+Add text overlays at specified times with customizable duration.
+Add background music to the video.
+Save the resulting video with a unique filename.
+Requirements
+Make sure you have the following installed before running the project:
 
-Download Videos from YouTube: Download videos directly from YouTube using their URL.
+Python 3.x: You can download it from python.org.
+MoviePy: For video editing. Install it via pip:
+Copy
+Edit
+pip install moviepy
+yt-dlp: For downloading YouTube videos. Install it via pip:
+Copy
+Edit
+pip install yt-dlp
+ImageMagick: Required for MoviePy to handle text rendering.
+Download ImageMagick from here.
+Ensure that the magick.exe file is available and the path is correctly set in the code. (The default path used in the code is C:/Program Files/ImageMagick-7.1.1-Q16-HDRI/magick.exe).
+Setup Instructions
+Clone or download the repository to your local machine.
+Install the required dependencies:
+Copy
+Edit
+pip install moviepy yt-dlp
+Install ImageMagick (if not already installed).
+Ensure that the IMAGEMAGICK_BINARY path in the code matches the location of magick.exe on your system.
+How to Use
+Download Video:
 
-Create Short Clips: Extract specific segments from a video to form a concise, engaging short clip.
+Open the application and input the YouTube video URL in the provided field.
+Click on Download Video to download the video to your local machine.
+Add Clips:
 
-Text Overlay: Add custom text overlays to enhance the video.
+Enter the start and end times for the clips you want to extract from the video.
+Click on Add Clip to add the selected clip to the list.
+Add Text Overlays:
 
-Background Music: Integrate background music into the final video.
+Enter the text, start time, and duration for the overlay.
+Click on Add Text Overlay to add the text overlay to the video.
+Select Background Music (Optional):
 
-Configurable Timestamps: Easily adjust the start and end times of video clips.
+Click on Select Background Music to choose an audio file from your local machine (e.g., MP3, WAV).
+Create Short Video:
 
-Flexible Output: Saves videos in MP4 format with high-quality audio and video encoding.
+Once all clips and text overlays have been added, and the music is selected (if applicable), click on Create Short Video.
+The video will be processed and saved with a unique filename based on the current timestamp (e.g., short_video_20250123-123456.mp4).
+Code Structure
+download_video(url, output_path): Downloads a video from YouTube using yt-dlp.
+create_short_video(input_path, output_path, clip_times, text_overlays, music_path): Creates the short video by selecting clips, adding text overlays, and including background music.
+start_gui(): Sets up the Tkinter-based graphical user interface (GUI) for user interaction.
+Example Usage
+After running the GUI, the following steps can be followed:
 
-Technologies Used
-Programming Language: Python
-
-Libraries:
-yt-dlp: For downloading videos from YouTube.
-
-moviepy: For video processing (trimming, combining clips, and adding text/audio).
-
-os: For file handling and directory creation.
-
-Additional Tools:
-ImageMagick: Required for rendering text overlays with moviepy.
-
-FFmpeg: Used internally by moviepy for efficient video encoding.
-
-Installation
-Prerequisites
-
-Install Python (>= 3.7).
-Install FFmpeg:
-On Windows: Download FFmpeg and add it to your system PATH.
-
-Install ImageMagick (for text rendering):
-Download and install from the official website.
-Ensure the path to the magick.exe binary is correctly configured in the script.
-
-HIGH LEVEL APPROACH
-1. Input: Video URL
-Objective: Accept a YouTube video URL as input.
-
-Action: Use a reliable tool (yt-dlp) to download the video in MP4 format.
-
-Output: Save the downloaded video locally for processing.
-
-3. Extract Video Segments
-Objective: Identify and extract key portions of the video.
-
-Action: Define timestamps to select interesting clips (e.g., 5–10 seconds, 15–20 seconds, etc.) using moviepy.
-
-Output: Short, individual video clips.
-
-5. Combine Clips
-Objective: Create a cohesive short video by merging selected clips.
-
-Action: Use moviepy to concatenate the extracted segments seamlessly.
-
-Output: A single combined video containing all selected clips.
-
-7. Enhance Video
-Objective: Add visual and audio enhancements for better engagement.
-
-Text Overlay: Include captions or titles using moviepy.
-
-Background Music: Integrate optional audio to replace or supplement the original audio.
-
-Action: Use TextClip and AudioFileClip to overlay text and audio onto the video.
-
-Output: An enhanced short video with text and/or music.
-
-9. Export Final Video
-Objective: Save the processed video in a shareable, high-quality format.
-
-Action: Use moviepy.write_videofile() to export the video with optimized settings (e.g., MP4 with libx264 and aac codecs).
-
-Output: The final short video saved locally.
-
-11. Optional Customizations
-Allow users to:
-Adjust clip timestamps.
-Change text content, font, and position.
-Use their own background music file.
-
-
-
-
-
-
-
-
+Enter the YouTube video URL (e.g., https://www.youtube.com/watch?v=example).
+Download the video by clicking Download Video.
+Add clips by specifying start and end times (e.g., 0s - 10s).
+Add text overlays with the desired text, start time, and duration.
+Select background music (optional).
+Click Create Short Video to generate the final video, saved in the videos/ folder with a unique filename.
